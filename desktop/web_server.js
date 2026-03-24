@@ -20,12 +20,18 @@ const ledgersRouter = require('./routes/ledgers');
 const vouchersRouter = require('./routes/vouchers');
 const reportsRouter = require('./routes/reports');
 const inventoryRouter = require('./routes/inventory');
+const staffRouter = require('./routes/staff');
+const attendanceRouter = require('./routes/attendance');
+const salaryRouter = require('./routes/salary');
 
 app.use('/api/companies', companiesRouter);
 app.use('/api/ledgers', ledgersRouter);
 app.use('/api/vouchers', vouchersRouter);
 app.use('/api/reports', reportsRouter);
 app.use('/api/inventory', inventoryRouter);
+app.use('/api/staff', staffRouter);
+app.use('/api/attendance', attendanceRouter);
+app.use('/api/salary', salaryRouter);
 
 app.get('/api/health', (req, res) => {
   res.json({ 

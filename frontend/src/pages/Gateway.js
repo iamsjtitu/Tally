@@ -49,6 +49,13 @@ const Gateway = ({ company }) => {
       path: '/ledgers'
     },
     {
+      title: 'Staff & Payroll',
+      description: 'Staff, Attendance, Salary Payment',
+      icon: <Users size={32} />,
+      shortcut: 'Alt+S',
+      path: '/staff'
+    },
+    {
       title: 'Voucher Entry',
       description: 'Receipt, Payment, Journal, Sales, Purchase',
       icon: <FileText size={32} />,

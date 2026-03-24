@@ -13,6 +13,10 @@ import BalanceSheet from './pages/reports/BalanceSheet';
 import DayBook from './pages/reports/DayBook';
 import CashBook from './pages/reports/CashBook';
 import LedgerReport from './pages/reports/LedgerReport';
+import StaffList from './pages/StaffList';
+import CreateStaff from './pages/CreateStaff';
+import MarkAttendance from './pages/MarkAttendance';
+import PaySalary from './pages/PaySalary';
 import './App.css';
 
 function App() {
@@ -47,6 +51,10 @@ function App() {
           <Route path="/reports/day-book" element={<DayBook company={currentCompany} />} />
           <Route path="/reports/cash-book" element={<CashBook company={currentCompany} />} />
           <Route path="/reports/ledger/:ledgerId" element={<LedgerReport company={currentCompany} />} />
+          <Route path="/staff" element={<StaffList company={currentCompany} />} />
+          <Route path="/staff/create" element={<CreateStaff company={currentCompany} />} />
+          <Route path="/attendance" element={<MarkAttendance company={currentCompany} />} />
+          <Route path="/salary" element={<PaySalary company={currentCompany} />} />
         </Routes>
       </div>
     </BrowserRouter>
