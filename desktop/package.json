@@ -1,0 +1,75 @@
+{
+  "name": "tally-clone",
+  "productName": "Tally Accounting Software",
+  "version": "1.0.0",
+  "description": "Complete Tally Clone - Accounting & Inventory Management Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder -mw",
+    "publish:win": "electron-builder --win --publish always",
+    "publish:mac": "electron-builder --mac --publish always",
+    "publish:all": "electron-builder -mw --publish always",
+    "pack": "electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.tally.accounting",
+    "productName": "Tally Accounting Software",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "web_server.js",
+      "routes/**/*",
+      "frontend-build/**/*",
+      "data/**/*",
+      "node_modules/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [{
+          "target": "nsis",
+          "arch": ["x64"]
+        }],
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "icon": "assets/icon.png",
+      "category": "public.app-category.finance"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Tally Accounting"
+    },
+    "publish": [{
+        "provider": "github",
+        "owner": "iamsjtitu",
+        "repo": "Tally-Clone"
+      }]
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "uuid": "^9.0.1",
+    "date-fns": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
