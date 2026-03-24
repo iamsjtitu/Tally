@@ -1,0 +1,12 @@
+# Placeholder for app icon
+# 
+# To add a real icon:
+# 1. Create a 512x512 PNG image
+# 2. Save as /app/desktop/assets/icon.png
+# 3. Icon will be used for:
+#    - Windows .exe installer
+#    - Mac .dmg installer
+#    - System tray icon
+#    - App window icon
+#
+# Recommended: Use a calculator or accounting-themed icon
