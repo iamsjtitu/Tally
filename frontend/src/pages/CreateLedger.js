@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Save, X } from 'lucide-react';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8765/api';
+import API_URL from '../config';
 
 const CreateLedger = ({ company }) => {
   const navigate = useNavigate();

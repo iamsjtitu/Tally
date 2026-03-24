@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FileText, Save, X, Plus, Trash2 } from 'lucide-react';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8765/api';
+import API_URL from '../config';
 
 const VoucherEntry = ({ company }) => {
   const navigate = useNavigate();

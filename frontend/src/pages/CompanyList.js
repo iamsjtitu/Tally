@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Building2, Plus, Edit, Trash2, CheckCircle, ArrowLeft } from 'lucide-react';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8765/api';
+import API_URL from '../config';
 
 const CompanyList = ({ onSelect }) => {
   const navigate = useNavigate();

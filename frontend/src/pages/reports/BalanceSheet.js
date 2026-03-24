@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PieChart, ArrowLeft, Printer, Download } from 'lucide-react';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8765/api';
+import API_URL from '../../config';
 
 const BalanceSheet = ({ company }) => {
   const navigate = useNavigate();
