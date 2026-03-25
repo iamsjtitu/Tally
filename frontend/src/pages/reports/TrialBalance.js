@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FileText, ArrowLeft, Printer, Download } from 'lucide-react';
 import axios from 'axios';
@@ -9,16 +9,7 @@ const TrialBalance = ({ company }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!company) {
-      alert('Please select a company first');
-      navigate('/companies');
-      return;
-    }
-    fetchTrialBalance();
-  }, [company]);
-
-  const fetchTrialBalance = async () => {
+  const fetchTrialBalance = useCallback(async () => {
     try {
       const response = await axios.get(`${API_URL}/reports/trial-balance?companyId=${company.id}`);
       setData(response.data);
@@ -27,7 +18,17 @@ const TrialBalance = ({ company }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [company]);
+
+  useEffect(() => {
+    if (!company) {
+      alert('Please select a company first');
+      navigate('/companies');
+      return;
+    }
+    fetchTrialBalance();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [company]);
 
   if (loading) {
     return <div className="loading">Loading trial balance...</div>;
