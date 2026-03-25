@@ -46,6 +46,8 @@ jobs:
         run: |
           cd frontend
           yarn build
+        env:
+          CI: false
       
       - name: Copy frontend build to desktop (Unix)
         if: runner.os != 'Windows'
