@@ -41,9 +41,14 @@ autoUpdater.on('update-downloaded', () => {
 function startWebServer() {
   return new Promise((resolve, reject) => {
     try {
-      backendProcess = spawn('node', [path.join(__dirname, 'web_server.js')], {
+      const { fork } = require('child_process');
+      const serverPath = path.join(__dirname, 'web_server.js');
+      
+      backendProcess = fork(serverPath, [], {
         cwd: __dirname,
-        env: { ...process.env, PORT: WEB_SERVER_PORT }
+        env: { ...process.env, PORT: WEB_SERVER_PORT },
+        silent: true,
+        stdio: ['pipe', 'pipe', 'pipe', 'ipc']
       });
 
       backendProcess.stdout.on('data', (data) => {
